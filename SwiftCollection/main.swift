@@ -107,7 +107,72 @@ for t in anotherAarry{
     println(t)
 }
 
-var atuples=(22)
+//集合字典部分：
+
+var airports:Dictionary<String,String>= ["TYO": "Tokyo", "DUB": "Dublin"]
+
+println(airports)
+
+//通过 count 获取字典包含的元素个数
+
+println("airports count=\(airports.count)")
+
+//字典的访问，和其他语言没有多少区别
+//println(airports["TYO"])
+
+//修改,找到对于的键，重新复制
+
+airports["TYO"]="DaBan"
+
+//新增项目
+airports["RMB"]="Shanghai"
+
+//修改项的值,如果是新增返回nil,如果是修改返回被修改的值
+var ds=airports.updateValue("Beijing",forKey:"CHR")
+var ty=airports.updateValue("Tokyo",forKey:"TYO")
+println(ty)
+//删除一个项
+airports["CHR"]=nil
+
+//删除一项，返回被移除项的值
+var df=airports.removeValueForKey("TYO")
+println(df)
+
+println("迭代字典")
+//迭代字典
+for (k, v) in airports {
+    println("\(k): \(v)")
+}
+
+//遍历key
+for k in airports.keys{
+    println(k)
+}
+
+//遍历value
+for v in airports.values{
+    println(v)
+}
+
+println(airports)
+
+//通过 Array利用字典的键值，转换为一个新的数组
+let airCode=Array(airports.keys)
+
+println(airCode)
+
+//申明一个不可变的字典
+let constantDc:Dictionary<Int,String>=[1:"One",2:"Two",3:"Three"];
+//这个是没法编译通过的
+//constantDc[4]="Four"
+//是否可以修改其中的值呢？
+//constantDc[1]="Zero";
+println(constantDc[1])
+
+
+
+
+
 
 
 
